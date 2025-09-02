@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.code028.inventoryapp.ui.splash.SplashFragment"
+        android:label="Splash"
+        tools:layout="@layout/fragment_splash" />
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.code028.inventoryapp.ui.auth.AuthFragment"
+        android:label="Auth">
+        <action
+            android:id="@+id/action_auth_to_login"
+            app:destination="@id/loginFragment"/>
+        <action
+            android:id="@+id/action_auth_to_register"
+            app:destination="@id/registerFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.code028.inventoryapp.ui.auth.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment"/>
+        <action
+            android:id="@+id/action_login_to_auth_home"
+            app:destination="@id/authFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.code028.inventoryapp.ui.auth.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/loginFragment"/>
+        <action
+            android:id="@+id/action_register_to_auth_home"
+            app:destination="@id/authFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/inventoryFragment"
+        android:name="com.code028.inventoryapp.ui.inventory.InventoryFragment"
+        android:label="Inventory"
+        tools:layout="@layout/fragment_inventory">
+        <action
+            android:id="@+id/action_inventoryFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/itemDetailFragment"
+        android:name="com.code028.inventoryapp.ui.inventory.ItemDetailFragment"
+        android:label="Item Detail"
+        tools:layout="@layout/fragment_item_detail">
+
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_itemDetailFragment_to_editItemFragment"
+            app:destination="@id/editItemFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editItemFragment"
+        android:name="com.code028.inventoryapp.ui.inventory.EditItemFragment"
+        android:label="Edit Item"
+        tools:layout="@layout/fragment_edit_item">
+
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addItemFragment"
+        android:name="com.code028.inventoryapp.ui.inventory.AddItemFragment"
+        android:label="Add Item"
+        tools:layout="@layout/fragment_add_item"/>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.code028.inventoryapp.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile"/>
+</navigation>

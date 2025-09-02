@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Инвентар"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#90CAF9"
+            android:layout_marginBottom="25dp"/>
+
+        <!-- Email input -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:hint="Е-пошта"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="#1E1E1E"
+            android:textColor="#FFFFFF"
+            android:padding="12dp" />
+
+        <!-- Password input -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:hint="Лозинка"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="#1E1E1E"
+            android:textColor="#FFFFFF"
+            android:padding="12dp" />
+
+        <!-- Login button -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пријавите се"
+            android:textAllCaps="false"
+            android:backgroundTint="#80CBC4"
+            android:textColor="#000000"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:cornerRadius="9dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/go_to_register_fragment"
+        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:text="Немате налог? Направи нови"
+        android:textSize="14sp"
+        android:textColor="#90CAF9"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="30dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

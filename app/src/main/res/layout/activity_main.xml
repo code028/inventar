@@ -1,0 +1,27 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:itemRippleColor="@color/teal_200"
+        app:labelVisibilityMode="auto"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconSize="@dimen/bottom_nav_icon_size"
+        app:itemActiveIndicatorStyle="@style/Widget.Material3.Button.IconButton.Filled"
+        app:itemTextAppearanceActive="@style/TextAppearance.Material3.BodyMedium"
+        app:itemTextAppearanceInactive="@style/TextAppearance.Material3.BodySmall"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
