@@ -91,6 +91,37 @@
             android:textSize="16sp"
             android:textAlignment="center"
             android:textColor="@android:color/darker_gray"/>
+
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/emptyStateLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/searchInputLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/ic_inventory_empty"
+            android:layout_marginBottom="16dp"
+            app:tint="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/tvEmptyState2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Тренутно у инвентару немате ниједну ставку. На страници додај можете вршити упис нових."
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/darker_gray"/>
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,6 +50,16 @@ class InventoryFragment : Fragment() {
         binding.rvInventory.layoutManager = LinearLayoutManager(requireContext())
         binding.rvInventory.adapter = adapter
 
+        if (adapter.itemCount == 0) {
+            binding.emptyStateLayout2.apply {
+                visibility = View.VISIBLE
+                alpha = 0f
+                animate().alpha(1f).setDuration(300).start()
+            }
+        } else {
+            binding.emptyStateLayout2.visibility = View.GONE
+        }
+
         // Firestore listener
         viewModel.getUserItems()?.addSnapshotListener { snapshot, e ->
             if (e != null) {
@@ -60,35 +70,14 @@ class InventoryFragment : Fragment() {
             fullItemList = snapshot?.toObjects(Equipment::class.java) ?: emptyList()
             adapter.submitList(fullItemList)
 
-            binding.emptyStateLayout.visibility =
+            binding.emptyStateLayout2.visibility =
                 if (fullItemList.isEmpty()) View.VISIBLE else View.GONE
+
+            if (fullItemList.isEmpty()) {
+                binding.emptyStateLayout.visibility = View.GONE
+            }
         }
 
-        // Search filter
-//        binding.searchEditText.addTextChangedListener { editable ->
-//            val query = editable?.toString().orEmpty().trim()
-//            val filteredList = if (query.isEmpty()) {
-//                fullItemList
-//            } else {
-//                fullItemList.filter {
-//                    it.name.contains(query, ignoreCase = true) ||
-//                            it.category.contains(query, ignoreCase = true) ||
-//                            it.location.contains(query, ignoreCase = true)
-//                }
-//            }
-//
-//            adapter.submitList(filteredList)
-//
-//            if (filteredList.isEmpty()) {
-//                binding.emptyStateLayout.apply {
-//                    visibility = View.VISIBLE
-//                    alpha = 0f
-//                    animate().alpha(1f).setDuration(300).start()
-//                }
-//            } else {
-//                binding.emptyStateLayout.visibility = View.GONE
-//            }
-//        }
         binding.searchEditText.addTextChangedListener { editable ->
             val query = editable?.toString().orEmpty().trim()
             val filteredList = if (query.isEmpty()) {
@@ -106,7 +95,7 @@ class InventoryFragment : Fragment() {
 
             adapter.submitList(filteredList)
 
-            if (filteredList.isEmpty()) {
+            if (fullItemList.isNotEmpty() && filteredList.isEmpty()) {
                 binding.emptyStateLayout.apply {
                     visibility = View.VISIBLE
                     alpha = 0f
