@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.code028.inventoryapp.R
 import com.code028.inventoryapp.databinding.FragmentItemDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,14 +29,26 @@ class ItemDetailFragment : Fragment() {
 
         viewModel.getItem(itemId).addOnSuccessListener {
             val item = it.toObject(Equipment::class.java)
+
             binding.tvName.text = item?.name
-            binding.tvCategory.text = item?.category
-            binding.tvQuantity.text = "Qty: ${item?.quantity}"
+            binding.tvCategory.text = "${item?.category}"
+            binding.tvQuantity.text = "Количина: ${item?.quantity}"
+            binding.tvLocation.text = item?.location ?: ""
+
+            if (item?.status == true) {
+                binding.tvStatus.text = "Активна ставка"
+                binding.ivStatusIcon.setImageResource(R.drawable.ic_status)
+            } else {
+                binding.tvStatus.text = "Отписана ставка"
+                binding.ivStatusIcon.setImageResource(R.drawable.ic_status2)
+            }
+
             binding.tvDescription.text = item?.description
         }
 
         binding.btnDelete.setOnClickListener {
             viewModel.deleteItem(itemId).addOnSuccessListener {
+                Toast.makeText(requireContext(), "Успешно обрисана ставка", Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
             }
         }

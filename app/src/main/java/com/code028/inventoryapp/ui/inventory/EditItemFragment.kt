@@ -27,12 +27,18 @@ class EditItemFragment : Fragment() {
         val itemId = arguments?.getString("id") ?: return
 
         // Pre-fill existing data
-        viewModel.getItem(itemId).addOnSuccessListener {
-            val item = it.toObject(Equipment::class.java) ?: return@addOnSuccessListener
-            binding.etName.setText(item.name)
-            binding.etCategory.setText(item.category)
-            binding.etQuantity.setText(item.quantity.toString())
-            binding.etDescription.setText(item.description)
+        itemId.let { id ->
+            viewModel.getItem(id).addOnSuccessListener { doc ->
+                val item = doc.toObject(Equipment::class.java)
+                item?.let {
+                    binding.etName.setText(it.name)
+                    binding.etCategory.setText(it.category)
+                    binding.etQuantity.setText(it.quantity.toString())
+                    binding.etDescription.setText(it.description)
+                    binding.etLocation.setText(it.location)
+                    binding.switchStatus.isChecked = it.status
+                }
+            }
         }
 
         // Save updated data
@@ -41,12 +47,42 @@ class EditItemFragment : Fragment() {
                 "name" to binding.etName.text.toString(),
                 "category" to binding.etCategory.text.toString(),
                 "quantity" to (binding.etQuantity.text.toString().toIntOrNull() ?: 0),
-                "description" to binding.etDescription.text.toString()
+                "description" to binding.etDescription.text.toString(),
+                "location" to binding.etLocation.text.toString(),
+                "status" to binding.switchStatus.isChecked
             )
-            viewModel.updateItem(itemId, updates).addOnSuccessListener {
-                Toast.makeText(requireContext(), "Item updated", Toast.LENGTH_SHORT).show()
-                findNavController().popBackStack()
+
+            if (listOf(
+                    updates["name"] as String,
+                    updates["category"] as String,
+                    updates["location"] as String,
+                    updates["description"] as String
+                ).any { it.isEmpty() }
+            ) {
+                Toast.makeText(requireContext(), "Молимо попуните сва поља", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+
+            if ((updates["quantity"] as Int) <= 0) {
+                Toast.makeText(requireContext(), "Количина мора бити већа од 0", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            itemId.let { id ->
+                viewModel.updateItem(id, updates)
+                    .addOnSuccessListener {
+                        Toast.makeText(requireContext(), "Ставка ажурирана", Toast.LENGTH_SHORT).show()
+                        findNavController().popBackStack()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(requireContext(), "Грешка: ${it.message}", Toast.LENGTH_SHORT).show()
+                    }
+            }
+        }
+
+        // Cancel button
+        binding.btnCancel.setOnClickListener{
+            findNavController().popBackStack()
         }
     }
 

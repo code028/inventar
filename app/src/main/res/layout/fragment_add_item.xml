@@ -1,42 +1,183 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#121212">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <EditText
-            android:id="@+id/etName"
-            android:hint="Name"
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Додај нову ставку у инвентар"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:textColor="#90CAF9"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center"/>
+
+        <!-- Name -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Назив"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="#1E1E1E"
+            app:boxStrokeColor="#90CAF9"
+            android:layout_marginBottom="16dp">
 
-        <EditText
-            android:id="@+id/etCategory"
-            android:hint="Category"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Category -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Категорија"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="#1E1E1E"
+            app:boxStrokeColor="#90CAF9"
+            android:layout_marginBottom="16dp">
 
-        <EditText
-            android:id="@+id/etQuantity"
-            android:hint="Quantity"
-            android:inputType="number"
+            <AutoCompleteTextView
+                android:id="@+id/etCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="16dp"
+                android:paddingStart="12dp"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#BDBDBD"
+                android:inputType="text"
+                android:focusable="true"
+                android:clickable="true"
+                android:cursorVisible="true"
+                android:dropDownHeight="150dp"
+                android:dropDownWidth="wrap_content"
+                android:dropDownVerticalOffset="12dp"
+                android:popupBackground="#1E1E1E"
+                android:completionThreshold="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Quantity -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Количина"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="#1E1E1E"
+            app:boxStrokeColor="#90CAF9"
+            android:layout_marginBottom="16dp">
 
-        <EditText
-            android:id="@+id/etDescription"
-            android:hint="Description"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Description -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Опис"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="#1E1E1E"
+            app:boxStrokeColor="#90CAF9"
+            android:layout_marginBottom="24dp">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:inputType="textMultiLine"
+                android:minLines="3"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- Location -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Локација"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="#1E1E1E"
+            app:boxStrokeColor="#90CAF9"
+            android:layout_marginBottom="16dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="16dp"
+                android:paddingStart="12dp"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#BDBDBD"
+                android:inputType="text"
+                android:focusable="true"
+                android:clickable="true"
+                android:cursorVisible="true"
+                android:dropDownHeight="150dp"
+                android:dropDownWidth="wrap_content"
+                android:dropDownVerticalOffset="12dp"
+                android:popupBackground="#1E1E1E"
+                android:completionThreshold="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <!-- Status -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/tvStatusLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Чува се као активна ставка"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginEnd="16dp"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:tint="#90CAF9"/>
+        </LinearLayout>
+
+        <!-- Save button -->
         <Button
             android:id="@+id/btnSave"
-            android:text="Save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сачувај"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#32c265"
+            app:cornerRadius="10dp"
+            android:paddingVertical="14dp"
+            />
     </LinearLayout>
 </ScrollView>

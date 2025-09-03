@@ -37,6 +37,7 @@ class LoginFragment : Fragment() {
         viewModel.authResult.observe(viewLifecycleOwner) { (success, msg) ->
             if (success) {
                 findNavController().navigate(R.id.inventoryFragment)
+                Toast.makeText(requireContext(), msg ?: "Успешно сте се пријавили", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(requireContext(), msg ?: "Login failed", Toast.LENGTH_SHORT).show()
             }

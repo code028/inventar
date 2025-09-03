@@ -13,6 +13,6 @@
         android:pathData="M3,7l9,5 9,-5"/>
     <!-- Unutrašnji detalj (da izgleda kao ima sadržaja) -->
     <path
-        android:fillColor="#B3E5FC"
+        android:fillColor="#0d38e0"
         android:pathData="M6,9l6,3 6,-3v2l-6,3 -6,-3z"/>
 </vector>

@@ -87,7 +87,14 @@
         android:id="@+id/addItemFragment"
         android:name="com.code028.inventoryapp.ui.inventory.AddItemFragment"
         android:label="Add Item"
-        tools:layout="@layout/fragment_add_item"/>
+        tools:layout="@layout/fragment_add_item">
+        <action
+            android:id="@+id/action_addItemFragment_to_inventoryFragment"
+            app:destination="@id/inventoryFragment"
+            app:popUpTo="@id/inventoryFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"

@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Box outline -->
+    <path
+        android:fillColor="@android:color/darker_gray"
+        android:pathData="M3,3h18v4H3zM3,7h18v14H3z"
+        android:fillAlpha="0.2"/>
+
+    <!-- Outer box -->
+    <path
+        android:fillColor="@android:color/darker_gray"
+        android:pathData="M20,2H4c-1.1,0 -2,0.9 -2,2v16c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2V4c0,-1.1 -0.9,-2 -2,-2zM20,20H4V8h16v12zM20,6H4V4h16v2z"/>
+
+    <!-- Empty box flap -->
+    <path
+        android:fillColor="@android:color/darker_gray"
+        android:pathData="M9,12h6v2H9z"/>
+</vector>

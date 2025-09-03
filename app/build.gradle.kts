@@ -77,5 +77,4 @@ dependencies {
 
     // Glide for images
     implementation("com.github.bumptech.glide:glide:4.16.0")
-
 }

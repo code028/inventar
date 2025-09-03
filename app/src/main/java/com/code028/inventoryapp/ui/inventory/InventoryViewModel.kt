@@ -19,8 +19,21 @@ class InventoryViewModel @Inject constructor(
         return repo.addItem(item, uid)
     }
 
-    fun getItems() = repo.getItems()
+    fun getUserItems() = authRepository.currentUser()?.uid?.let { uid ->
+        repo.getUserItems(uid)
+    }
+
     fun getItem(id: String) = repo.getItem(id)
     fun updateItem(id: String, data: Map<String, Any>) = repo.updateItem(id, data)
     fun deleteItem(id: String) = repo.deleteItem(id)
+    fun getAllUserCategories(onResult: (List<String>) -> Unit) {
+        val uid = authRepository.currentUser()?.uid ?: return onResult(emptyList())
+        repo.getAllUserCategories(uid, onResult)
+    }
+    fun getAllUserLocations(onResult: (List<String>) -> Unit) {
+        val uid = authRepository.currentUser()?.uid ?: return onResult(emptyList())
+        repo.getAllUserLocations(uid, onResult)
+    }
+
+
 }

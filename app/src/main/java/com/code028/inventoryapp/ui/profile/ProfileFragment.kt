@@ -2,8 +2,6 @@ package com.code028.inventoryapp.ui.profile
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import com.bumptech.glide.Glide
 import android.net.Uri
 import androidx.fragment.app.viewModels
@@ -13,13 +11,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
 import com.code028.inventoryapp.R
 import com.code028.inventoryapp.databinding.FragmentProfileBinding
-import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.graphics.toColorInt
@@ -27,7 +23,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import androidx.core.view.isGone
-
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
@@ -125,6 +120,7 @@ class ProfileFragment : Fragment() {
         // Logout bind for fun and fragment
         binding.btnLogout.setOnClickListener {
             viewModel.logout()
+            Toast.makeText(requireContext(), "Успешно одјављен корисник", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.authFragment)
         }
 

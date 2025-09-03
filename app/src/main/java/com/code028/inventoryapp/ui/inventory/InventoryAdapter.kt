@@ -19,7 +19,7 @@ class InventoryAdapter(
         fun bind(item: Equipment, onClick: (Equipment) -> Unit) {
             binding.tvName.text = item.name
             binding.tvCategory.text = item.category
-            binding.tvQuantity.text = "Qty: ${item.quantity}"
+            binding.tvQuantity.text = "Количина: ${item.quantity}"
             binding.root.setOnClickListener { onClick(item) }
         }
     }
