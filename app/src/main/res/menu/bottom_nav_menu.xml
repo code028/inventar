@@ -9,6 +9,11 @@
         android:title="Додај"
         />
     <item
+        android:id="@+id/qrScanFragment"
+        android:icon="@drawable/qr_code_scanner"
+        android:title="Скенирај"
+        />
+    <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_profile"
         android:title="Профил"

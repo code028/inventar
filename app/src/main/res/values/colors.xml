@@ -28,5 +28,7 @@
     <color name="backgroundDark">#121212</color>
     <color name="textSecondaryDark">#BDBDBD</color>
 
+    <color name="errorMessage">#f70505</color>
+
 
 </resources>

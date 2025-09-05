@@ -74,7 +74,25 @@ dependencies {
 
     // Material Desing
     implementation(libs.material)
+    implementation("com.google.android.material:material:1.12.0")
 
-    // Glide for images
+
+
+    // Glide for profile image functional
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    // ML Kit Barcode/QR
+    implementation("com.google.mlkit:barcode-scanning:17.2.0")
+
+    // CameraX
+    implementation("androidx.camera:camera-core:1.3.4")
+    implementation("androidx.camera:camera-camera2:1.3.4")
+    implementation("androidx.camera:camera-lifecycle:1.3.4")
+    implementation("androidx.camera:camera-view:1.3.4")
+
+    // Guava (za ListenableFuture)
+    implementation("com.google.guava:guava:31.0.1-android")
+
+    // Dep to generate QR code
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
 }

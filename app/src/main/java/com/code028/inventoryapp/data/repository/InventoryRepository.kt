@@ -23,7 +23,6 @@ class InventoryRepository @Inject constructor(
         )
     }
 
-
     fun getUserItems(userId: String) =
         inventoryRef
             .whereEqualTo("userId", userId)

@@ -34,6 +34,5 @@ class InventoryViewModel @Inject constructor(
         val uid = authRepository.currentUser()?.uid ?: return onResult(emptyList())
         repo.getAllUserLocations(uid, onResult)
     }
-
-
+    fun getUserId(): String? = authRepository.currentUser()?.uid
 }

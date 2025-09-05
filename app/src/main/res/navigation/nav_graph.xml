@@ -97,6 +97,16 @@
     </fragment>
 
     <fragment
+        android:id="@+id/qrScanFragment"
+        android:name="com.code028.inventoryapp.ui.qrCode.QrScannerFragment"
+        android:label="QR Scanner"
+        tools:layout="@layout/fragment_qr_scanner" >
+        <action
+            android:id="@+id/action_qrScanFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/profileFragment"
         android:name="com.code028.inventoryapp.ui.profile.ProfileFragment"
         android:label="Profile"
