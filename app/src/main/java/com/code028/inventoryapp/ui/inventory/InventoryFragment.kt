@@ -1,30 +1,18 @@
 package com.code028.inventoryapp.ui.inventory
 
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Rect
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 
-import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.code028.inventoryapp.data.model.Equipment
 import com.code028.inventoryapp.databinding.FragmentInventoryBinding
 import dagger.hilt.android.AndroidEntryPoint
-import com.code028.inventoryapp.R
 
 @AndroidEntryPoint
 class InventoryFragment : Fragment() {
